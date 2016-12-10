@@ -1,0 +1,10 @@
+{
+  "name": "earthquake-converter",
+  "version": "1.0.0",
+  "description": "Send earthquake data to hardware",
+  "main": "src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "feedme": "^0.3.3"
+  }
+}
