@@ -1,19 +1,23 @@
-const Seismometer = require('./seismometer');
-const communicator = require('./communicator');
+const Communicator = require('../src/communicator');
 
 function main() {
   const communicator = new Communicator();
 
-  const seismometer = new Seismometer();
-  seismometer.watch();
-
   communicator.connect().then(() => {
     console.log('Connected to', communicator.port.path);
 
-    seismometer.on('quake', info => {
+    setInterval(() => {
+      const info = {
+        date: Date.now(),
+        magnitude: Math.random() * 10,
+        latitude: Math.random() * 360 - 180,
+        longitude: Math.random() * 360 - 180,
+      };
+
       console.log(`Quake! At ${info.date} with a magnitude of ${info.magnitude}`);
+
       communicator.send(info);
-    });
+    }, 5000);
   });
 }
 

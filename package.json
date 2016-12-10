@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
-    "feedme": "^0.3.3"
+    "feedme": "^0.3.3",
+    "serialport": "^4.0.6"
   }
 }
