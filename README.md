@@ -2,6 +2,8 @@
 
 Pulls live earthquake data from the [US Geological Survey site](http://earthquake.usgs.gov/) and sends information about each event to connected serial devices.
 
+![:)](http://i.imgur.com/e5YmLI3.gif)
+
 ## Installation on Raspberry Pi B+
 
 1. Download [ResinOS](https://resinos.io/#downloads) for Raspberry Pi 1.
