@@ -8,7 +8,7 @@ function main() {
 
     setInterval(() => {
       const info = {
-        date: Date.now(),
+        date: new Date(Date.now()),
         magnitude: Math.random() * 10,
         latitude: Math.random() * 360 - 180,
         longitude: Math.random() * 360 - 180,

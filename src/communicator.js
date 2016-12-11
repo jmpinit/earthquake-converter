@@ -40,8 +40,11 @@ class Communicator {
   }
 
   send(info) {
-    const msg = `${info.date} ${info.magnitude} ${info.latitude} ${info.longitude}\n`;
-    this.port.write(Buffer.from(msg, 'ascii'));
+    const unixTime = Math.floor(info.date.getTime() / 1000);
+    const msg = `${unixTime} ${info.magnitude} ${info.latitude} ${info.longitude}\n`;
+    const data = Buffer.from(msg, 'ascii');
+    console.log('Sending', data.toString());
+    this.port.write(data);
   }
 }
 
