@@ -10,7 +10,11 @@ function getFirstPort() {
 
       const realPorts = ports.filter(port => port.comName.indexOf('Bluetooth') === -1);
 
-      fulfill(realPorts[0].comName);
+      if (realPorts.length === 0) {
+        reject(new Error('No valid port'));
+      } else {
+        fulfill(realPorts[0].comName);
+      }
     });
   });
 }
@@ -22,6 +26,16 @@ class Communicator {
 
       // reset at start
       this.port.on('open', () => this.port.write('\n'));
+
+      this.port.on('disconnect', () => {
+        console.log('Serial port disconnected. Exiting...');
+        process.exit(1);
+      });
+
+      this.port.on('close', () => {
+        console.log('Serial port closed. Exiting...');
+        process.exit(1);
+      });
     });
   }
 
