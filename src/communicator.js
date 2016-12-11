@@ -19,6 +19,9 @@ class Communicator {
   connect() {
     return getFirstPort().then(comName => {
       this.port = new SerialPort(comName, { baudRate: 115200 });
+
+      // reset at start
+      this.port.on('open', () => this.port.write('\n'));
     });
   }
 
