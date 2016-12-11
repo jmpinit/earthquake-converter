@@ -2,7 +2,7 @@
 
 Pulls live earthquake data from the [US Geological Survey site](http://earthquake.usgs.gov/) and sends information about each event to connected serial devices.
 
-![:)](http://i.imgur.com/e5YmLI3.gif)
+![:)](http://i.imgur.com/1DbNcsf.gif)
 
 ## Installation on Raspberry Pi B+
 
