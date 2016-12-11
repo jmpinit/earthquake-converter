@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Send earthquake data to hardware",
   "main": "src/index.js",
+  "scripts": {
+    "start": "node src"
+  },
   "repository": "https://github.com/jmptable/earthquake-converter",
   "license": "MIT",
   "dependencies": {
