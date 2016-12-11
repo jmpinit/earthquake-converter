@@ -24,6 +24,6 @@ Pulls live earthquake data from the [US Geological Survey site](http://earthquak
 
 ## Serial Protocol
 
-When earthquakes occur the time, magnitude, latitude, and longitude will be written to the first serial port found, in that order. The values will be floats separated by a single space and terminated with a newline.
+When earthquakes occur the time, magnitude, latitude, and longitude will be written to the first serial port found, in that order. The values will be floats separated by a single space and terminated with a newline. Time is given as seconds since 00:00:00 UTC ([Unix Time](https://en.wikipedia.org/wiki/Unix_time)). Magnitude is measured on the Richter scale.
 
 For an example of parsing this data with an Arduino take a look at the earthquake-light firmware in the examples directory.
