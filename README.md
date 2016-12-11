@@ -10,17 +10,18 @@ Pulls live earthquake data from the [US Geological Survey site](http://earthquak
 
 [ResinOS](https://resinos.io/) offers a stripped down operating system which starts up quickly, restarts the app when it fails, and is more robust to filesystem corruption.
 
-1. Download [ResinOS](https://resinos.io/#downloads) for Raspberry Pi 1.
-2. Extract and install ResinOS image on micro SD card.
-3. Connect Raspberry Pi to network and power.
-4. Install the [resin device toolbox](https://github.com/resin-os/resin-device-toolbox) (`npm install -g resin-device-toolbox`).
-5. Run `rdt push` in the root of this repo and select your Raspberry Pi when prompted.
+1. Download [ResinOS](https://resinos.io/#downloads) for Raspberry Pi 1
+2. Extract and install ResinOS image on micro SD card
+3. Connect Raspberry Pi to network and power
+4. Install the [resin device toolbox](https://github.com/resin-os/resin-device-toolbox) (`npm install -g resin-device-toolbox`)
+5. Run `rdt push` in the root of this repo and select your Raspberry Pi when prompted
 
 **On Top of Raspbian:**
 
-1. Clone the repo
-2. `npm install`
-3. `npm start`
+1. Clone the repo (`git clone https://github.com/jmptable/earthquake-converter`)
+2. `cd earthquake-converter`
+3. `npm install`
+4. `npm start`
 
 ## Serial Protocol
 
