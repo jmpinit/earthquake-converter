@@ -20,8 +20,10 @@ function getFirstPort() {
 }
 
 class Communicator {
-  connect() {
-    return getFirstPort().then(comName => {
+  connect(portPath) {
+    const portPromise = portPath ? Promise.resolve(portPath) : getFirstPort();
+
+    return portPromise.then(comName => {
       this.port = new SerialPort(comName, { baudRate: 115200 });
 
       // reset at start
