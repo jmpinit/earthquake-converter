@@ -13,7 +13,7 @@ sends information about each event to connected serial devices.
 restarts the app when it fails, and is more robust to filesystem corruption.
 
 1. Download [ResinOS](https://resinos.io/#downloads) for Raspberry Pi 1
-2. Extract and install ResinOS image on micro SD card
+2. Extract and install ResinOS image on micro SD card. [Etcher](https://etcher.io/) is a really good tool for this.
 3. Connect Raspberry Pi to network and power
 4. Install the [resin device toolbox](https://github.com/resin-os/resin-device-toolbox)
 (`npm install -g resin-device-toolbox`)
