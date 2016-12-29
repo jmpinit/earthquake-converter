@@ -23,8 +23,9 @@ restarts the app when it fails, and is more robust to filesystem corruption.
 
 **Dependencies:**
 
-* [Node.js](https://nodejs.org/en/) (v5 or greater) - can be installed on Raspbian using [these
-instructions](https://gist.github.com/jmptable/a7b985ea2d812deab6f1a3eaa5f0ee41).
+* [Node.js](https://nodejs.org/en/) (v5 or greater)
+    - On Raspberry Pi B+ running Raspbian you can install with `curl https://nodejs.org/dist/v6.9.0/node-v6.9.0-linux-armv7l.tar.gz | tar --strip-components 1 -xvz -C /usr/local --exclude='CHANGELOG.md' --exclude='LICENSE' --exclude='README.md'`
+    - On Raspberry Pi 3 running Raspbian you can install with `curl https://nodejs.org/dist/v6.9.0/node-v6.9.0-linux-arm64.tar.gz | tar --strip-components 1 -xvz -C /usr/local --exclude='CHANGELOG.md' --exclude='LICENSE' --exclude='README.md'`
 
 1. Clone the repo (`git clone https://github.com/jmptable/earthquake-converter`)
 2. `cd earthquake-converter`
