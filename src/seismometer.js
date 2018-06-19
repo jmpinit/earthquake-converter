@@ -1,9 +1,9 @@
 const FeedMe = require('feedme');
-const http = require('http');
+const https = require('https');
 const EventEmitter = require('events').EventEmitter;
 
 const RECENT_PERIOD = 5 * 60 * 1000; // ms
-const earthquakeFeed = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom';
+const earthquakeFeed = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom';
 
 function mapCategories(categories) {
   return categories.reduce((catMap, category) => {
@@ -38,7 +38,7 @@ class Seismometer extends EventEmitter {
       }
     };
 
-    http.get(earthquakeFeed, res => {
+    https.get(earthquakeFeed, res => {
       const parser = new FeedMe();
 
       parser.on('updated', updateTime => {
