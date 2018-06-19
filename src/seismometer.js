@@ -39,6 +39,11 @@ class Seismometer extends EventEmitter {
     };
 
     https.get(earthquakeFeed, res => {
+      if (res.statusCode !== 200) {
+        console.log(`Earthquake API server returned non-OK status code ${res.statusCode}`);
+        return;
+      }
+
       const parser = new FeedMe();
 
       parser.on('updated', updateTime => {
