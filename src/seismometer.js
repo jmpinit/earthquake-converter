@@ -24,7 +24,14 @@ class Seismometer extends EventEmitter {
       const info = mapCategories(quakeItem.category);
 
       // parse magnitude from title because it's more precise there
-      const magnitude = parseFloat(/M (-?\d+\.\d+)/.exec(quakeItem.title)[1]);
+      const magnitudeMatches = /M (-?\d+\.\d+)/.exec(quakeItem.title);
+
+      if (magnitudeMatches === null || magnitudeMatches.length < 2) {
+        console.log(`Failed to read earthquake magnitude from data "${quakeItem.title}"`);
+        return undefined;
+      }
+
+      const magnitude = parseFloat(magnitudeMatches[1]);
 
       const locationParts = quakeItem['georss:point'].split(/\s/);
       const latitude = parseFloat(locationParts[0]);
@@ -38,7 +45,7 @@ class Seismometer extends EventEmitter {
       }
     };
 
-    https.get(earthquakeFeed, res => {
+    const feedUpdateRequest = https.get(earthquakeFeed, res => {
       if (res.statusCode !== 200) {
         console.log(`Earthquake API server returned non-OK status code ${res.statusCode}`);
         return;
@@ -55,6 +62,11 @@ class Seismometer extends EventEmitter {
       parser.on('item', item => {
         const quake = parse(item);
 
+        if (quake === undefined) {
+          // No quake was parsed from the data, ignore
+          return;
+        }
+
         if (this.lastQuake === undefined) {
           // prime the watcher
           this.lastQuake = quake;
@@ -70,6 +82,8 @@ class Seismometer extends EventEmitter {
 
       res.pipe(parser);
     });
+
+    feedUpdateRequest.on('error', (err) => console.log(err));
   }
 
   watch() {
